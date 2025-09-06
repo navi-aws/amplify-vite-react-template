@@ -6,8 +6,8 @@ import { generateClient } from "aws-amplify/data";
 const client = generateClient<Schema>();
 
 function App() {
-  const { signOut } = useAuthenticator();
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+  const { user, signOut } = useAuthenticator();
+   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
@@ -69,7 +69,7 @@ function App() {
           </li>
         ))}
       </ul>
-
+      <h1>{user?.signInDetails?.loginId}'s todos</h1>
     </main>
   );
 }
