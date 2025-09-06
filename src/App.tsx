@@ -5,6 +5,10 @@ import { generateClient } from "aws-amplify/data";
 const client = generateClient<Schema>();
 
 function App() {
+    
+  function deleteTodo(id: string) {
+    client.models.Todo.delete({ id })
+  }
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
   useEffect(() => {
@@ -23,7 +27,8 @@ function App() {
       <button onClick={createTodo}>+ new</button>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
+          <li key={todo.id}>{todo.content}</li
+        onClick={() => deleteTodo(todo.id)}>
         ))}
       </ul>
       <div>
