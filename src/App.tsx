@@ -36,7 +36,7 @@ function App() {
       background: '#4a148c',
       color: 'white'
     }}>
-      <h1>My ToDo List</h1>
+      <h1 style={{ margin: '40px 100px', textAlign: 'center' }}>My ToDo List</h1>
       <button onClick={createTodo}>+ New Task</button>
       <button onClick={signOut} style={{ backgroundColor: 'red', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '4px', cursor: 'pointer' }}>Sign out</button>
       <ul>
